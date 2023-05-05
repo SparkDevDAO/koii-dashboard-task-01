@@ -12,7 +12,6 @@ class CoreLogic {
       });
 
       const result = await axios.get(process.env.GET_K2_NODES_URL);
-      // console.log('Axios result data: ', result.data.data);
 
       // TODO sign data uploaded to IPFS to prove node uploaded it
       const resultSigned = await namespaceWrapper.payloadSigning(
@@ -26,7 +25,6 @@ class CoreLogic {
         // Storing on IPFS through web3 storage as example
         const cid = await storageClient.put(files);
         await namespaceWrapper.storeSet('cid', cid);
-        console.log('cid: ', cid);
 
         // await namespace.checkSubmissionAndUpdateRound(cid);
       } else {

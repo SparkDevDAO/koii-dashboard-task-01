@@ -88,14 +88,9 @@ if (app) {
   });
 
   app.post('/accept-cid', async (req, res) => {
-    const { body } = req;
-    console.log('body: ', body);
     const cid = await namespaceWrapper.storeGet('cid');
-    console.log('cid: ', cid);
     const url = `https://w3s.link/ipfs/${cid}/data.json`;
     const result = await axios.get(url);
-    console.log({ result });
-    console.log('result.data: ', result.data);
     res.status(200).json({ url });
   });
 
